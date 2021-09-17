@@ -24,7 +24,7 @@ public class TodoUtil {
 		
 		title = sc.nextLine();
 		if (list.isDuplicate(title)) {
-			System.out.printf("-- 제목이 중복됩니다 --");
+			System.out.println("-- 제목이 중복됩니다 --");
 			return;
 		}
 		//sc.nextLine();
