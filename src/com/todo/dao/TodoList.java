@@ -11,19 +11,18 @@ public class TodoList {
 	public TodoList() {
 		this.list = new ArrayList<TodoItem>();
 	}
+	
+	public TodoItem accessItem(Integer a) {
+		TodoItem t = list.get(a);
+		return t;
+	}
 
 	public void addItem(TodoItem t) {
 		list.add(t);
 	}
 
-	public void deleteItem(TodoItem t) {
-		list.remove(t);
-	}
-
-	void editItem(TodoItem t, TodoItem updated) {
-		int index = list.indexOf(t);
-		list.remove(index);
-		list.add(updated);
+	public void deleteItem(int t) {
+		list.remove(t-1);
 	}
 
 	public ArrayList<TodoItem> getList() {
@@ -54,10 +53,23 @@ public class TodoList {
 		return list.indexOf(t);
 	}
 
-	public Boolean isDuplicate(String title) {
+	public Boolean isThereNumber(Integer a) {	
+		if (list.size()<a-1 || a<1) return false;
+		return true;
+	}
+	public Boolean isDuplicateTitle(String title) {
 		for (TodoItem item : list) {
 			if (title.equals(item.getTitle())) return true;
 		}
 		return false;
+	}
+	public Boolean isDuplicateDesc(String desc) {
+		for (TodoItem item : list) {
+			if (desc.equals(item.getDesc())) return true;
+		}
+		return false;
+	}
+	public Integer getSize() {
+		return list.size();
 	}
 }
